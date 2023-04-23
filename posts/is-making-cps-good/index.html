@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f7cce">
+  <meta name="author" content="Yangcheng He">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="最近 ljy 和 sy，还有 ls 和 lxy 的事情闹得热火朝天，以至于 kk 都知道了这事，并请了亿些同学品茶。 不过这样，真的好玩吗？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组 CP，真的好吗？">
+<meta property="og:url" content="https://blog.heyc.eu.org/posts/is-making-cps-good/index.html">
+<meta property="og:site_name" content="Heyc&#39;s Blog">
+<meta property="og:description" content="最近 ljy 和 sy，还有 ls 和 lxy 的事情闹得热火朝天，以至于 kk 都知道了这事，并请了亿些同学品茶。 不过这样，真的好玩吗？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-13T14:34:00.000Z">
+<meta property="article:modified_time" content="2023-04-23T10:01:08.229Z">
+<meta property="article:author" content="Yangcheng He">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>组 CP，真的好吗？ - Heyc&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.heyc.eu.org","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Heyc&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://img-sukasuka.heyc.eu.org') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="组 CP，真的好吗？"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-13 22:34" pubdate>
+          2022年12月13日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">组 CP，真的好吗？</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>最近 ljy 和 sy，还有 ls 和 lxy 的事情闹得热火朝天，以至于 kk 都知道了这事，并请了亿些同学品茶。</p>
+<p>不过这样，真的好玩吗？</p>
+<span id="more"></span>
+<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1859652717&auto=0&height=66"></iframe></center>
+<h2 id="从小学时代说起"><a class="markdownIt-Anchor" href="#从小学时代说起"></a> 从小学时代说起</h2>
+<p>我在小学的时候，忘了是五年级还是六年级，转来一个女的。从此，一直到毕业我就没安宁过。</p>
+<h3 id="主动讨打"><a class="markdownIt-Anchor" href="#主动讨打"></a> 主动讨打</h3>
+<p>这人呢，一上来就莫名其妙来打我，像是想要引起我的注意，但又像是纯搞事情。</p>
+<p>我本来不想惹事，也就没太管这事。但是事实证明，不管不行：这人更是变本加厉了，以至于我的<s>好基友</s>好兄弟都为我不管这件事这件事感到惊讶。</p>
+<p>此时，八卦的种子已经突破种皮，开始萌芽。</p>
+<h3 id="反客为主"><a class="markdownIt-Anchor" href="#反客为主"></a> 反客为主</h3>
+<p>经过了<strong>快一整个学期</strong>，我终于忍不住了。这人实在是太过分了。</p>
+<p>体育课。她还没意识到将会发生什么，就像习惯了一样，紧跟在我的后面。我看似被追杀，其实我早就布好了埋伏。</p>
+<p>我的好兄弟正躲在小路旁边的菜地里，等待着我的到来。</p>
+<p>那人看到我来了支援，气势一下就弱了好几个度。当我拿起那将近 2.5kg 重的班牌的时候，她似乎就已经知道了这次战争的结果。那之后几乎两周，我都没有再次近距离看到那人。</p>
+<p>当然，在小学老师的眼里，我是个品学兼优的学生，我也意识到了这一点，所以我并没有下手太重。</p>
+<p>我并不想把这件事继续下去，因为我知道矛盾激化显然不是，也不可能是一件好事。</p>
+<h3 id="死灰复燃"><a class="markdownIt-Anchor" href="#死灰复燃"></a> 死灰复燃</h3>
+<p>我本以为这事就这样了结了，但是我似乎已被这事缠上了，就像一把永远也解不开的枷锁那样把我锁得死死的。</p>
+<p>过了一段时间，她似乎认为危机已经解除，又恢复了那令人作呕的状态。我知道，我不会忍了，也不能忍了。</p>
+<h3 id="因逝分解"><a class="markdownIt-Anchor" href="#因逝分解"></a> 因逝分解</h3>
+<p>那一刻，新仇旧恨涌上心头。我一把夺过了那把向我挥来的羽毛球拍，用力向反方向挥去。</p>
+<p>「啪」</p>
+<p>羽毛球拍被丢到地上，两个人从楼梯间中走出。</p>
+<p>「哇，hyc 和 pyj 好有 CP 样哦！」</p>
+<p>她似乎知道单枪匹马打不过我和兄弟，于是下一节体育课上，我见到了三个人。</p>
+<p>只可惜，三个人终究还是抢不过我们俩，羽毛球拍总是被牢牢掌控在我手中。</p>
+<p>羽毛球拍才不是我的目的，我只是在享受争抢的乐趣罢了。此时的我，俨然已经成为那个将自己的快乐建立在别人的痛苦之上的人。</p>
+<p>「打是亲，骂是爱啊！」</p>
+<p>也许正是这句话，刺痛了我的内心。</p>
+<h3 id="心有不甘"><a class="markdownIt-Anchor" href="#心有不甘"></a> 心有不甘</h3>
+<p>一般人被被自己打败过不知道多少次的人打败，而且还是败得落花流水的时候，肯定会气的不得了。也许就是这种情绪驱使着她在班级 QQ 群中找到了我，并开启了临时会话。</p>
+<p>过了一会，我的 iPad 响个不停，不过毕竟我是抱着一种“无为而治”的心态，我还是没说什么，好在过了一会它就安静了，可能是知道我不会回复信息？</p>
+<p>当信息潮再次来临时，我屏蔽了那人。</p>
+<p>然而，到了学校，这人却又变相来嘲讽我：“表情包好看吗？hyc”</p>
+<p>“……”</p>
+<p>“哈，怕了！”</p>
+<p>「哇！！！这也太甜了吧！！！」</p>
+<p>就在这时，似乎有一把无形的剑刺入了我的内心。</p>
+<p>我知道，是时候运用我的技能了。</p>
+<p>必杀技，C++ 开发----</p>
+<h3 id="究极反杀"><a class="markdownIt-Anchor" href="#究极反杀"></a> 究极反杀</h3>
+<p>于是，我连夜开发了我的刷屏器并将其开源。<a target="_blank" rel="noopener" href="https://github.com/hyc1230/screen-flooder">GitHub 仓库</a></p>
+<p>我本想用 10ms 一条的消息卡死对方的手机，但是一件不幸的事情发生了：QQ 并不能承受如此之大的压力，提示“不能发送空消息”。</p>
+<p>这也许是对我的一个提醒吧。我最后还是觉得不要那么邪恶，于是我就仁慈地把时间间隔调到了 500ms，至少比刚刚好多了。</p>
+<p>不过这对于她来说，可能是生命之不可承受之重。为什么这么说呢？其实是因为她最后选择了屏蔽我。</p>
+<p>从此，我和她的生活中几乎没有交集，除了打架。而打架的结果往往是我大获全胜。</p>
+<h3 id="撮合撮合"><a class="markdownIt-Anchor" href="#撮合撮合"></a> 撮合撮合</h3>
+<p>我在打架，不如说是较量中，只要战场最远亮点之间距离不超过 50m，就总会有人在一边欣赏我的表演，时不时还说上一两句。</p>
+<p>「哇啊啊啊啊啊啊啊！！！别撒狗粮了啊啊啊啊啊！」</p>
+<p>「含糖量太高了！啊啊啊！」</p>
+<p>「一天都不用吃东西了！」</p>
+<p>我并不想惹事，所以我没有管这群人。<s>其实实际上是因为一群人全都是女的，不好惹啊</s>。</p>
+<h2 id="如何理解组-cp"><a class="markdownIt-Anchor" href="#如何理解组-cp"></a> 如何理解组 CP？</h2>
+<p>我的心理课老师，同时也是学校的心理辅导员，曾说过一句话：“如果一个人天天都在说 xxx xxx 在一起，那么其实他更像想 tla。”</p>
+<p>是的，在我身边就有这样的例子。</p>
+<p>我有一个小学同学，现在天天在朋友圈发一些有的没的，天天嗑这嗑那，她也是我较量的观看者之一，并且听说现在还在努力找 npy 呢。</p>
+<p>UPD：谈了两个，一个半个月就分了，另一个两个月才分。</p>
+<h2 id="组-cp-有什么好玩的"><a class="markdownIt-Anchor" href="#组-cp-有什么好玩的"></a> 组 CP 有什么好玩的？</h2>
+<p>组 CP 这件事在我心中的理解，其实就是把自己想 tla 的心寄托在另外一个人身上，也就是类似于角色代入。通过这种方法，来使自己想 tla 的情绪得到释放。</p>
+<p>我自认为我对这方面的理解是比一些没经历过这种事情的同学要深一点的。所以我会在别人嗑 CP 的时候，去想想当事人的感受。</p>
+<h2 id="有什么影响"><a class="markdownIt-Anchor" href="#有什么影响"></a> 有什么影响？</h2>
+<p>正如你在上文中看到的那样，我本是一个性格比较温和，不想惹是生非的人，但是你可能不知道的是，那时我的心里只有愤怒，就像那个心理老师作的一个比喻：“猴子从理智人手中抢过了方向盘。”</p>
+<p>我个人认为，组 CP 这件事是一件很搞笑的事情，同时也是一件可能可以改变一个人命运的事情。做这件事情的人都感觉，好像我说上一句，没什么事的，殊不知他（她）的这一句话，会对当事人造成多大的伤害。</p>
+<p><s>就是说，如果你想 tla，你就去谈啊！自己不敢，还在那嗑别人，别人是你的玩具吗？你知道你这样做带来的后果是什么吗？你承担得起这份责任吗？！</s></p>
+<p>UPD：这句话是我在同情 ljy 的时候写的，但是看起来现在这句话已经失去了意义。</p>
+<p>正所谓“当局者迷，旁观者清”，只有走出迷宫的人才知道离开迷宫应该怎么走，只有经历过艰难时期的人才知道幸福的来之不易。</p>
+<h2 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h2>
+<p><s>愿 17 班再无这种愚蠢的行为，也希望当事人能够尽快恢复吧。</s></p>
+<p>UPD：恢复个毛。</p>
+<p>写这篇文章用了我将近 2 小时的时间。其实我是很反感这一类的事情的，我也不希望这些事情会出现在我的博客里。但是如果这篇文章可以帮到更多的老师同学的话，我觉得这时间也是花的值了。</p>
+<p>UPD：**ljy 我真是看错你了！**鞭尸鞭尸鞭尸鞭尸鞭尸鞭尸鞭尸！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/opinions/" class="category-chain-item">看法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>组 CP，真的好吗？</div>
+      <div>https://blog.heyc.eu.org/posts/is-making-cps-good/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Yangcheng He</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/solution-luogu-p8918/" title="题解 LuoguP8918 『MdOI R5』Jump">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">题解 LuoguP8918 『MdOI R5』Jump</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/solution-cspj2022t1/" title="题解 CSP-J 2022 T1 乘方 / LuoguP8813">
+                        <span class="hidden-mobile">题解 CSP-J 2022 T1 乘方 / LuoguP8813</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.14.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.14.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comments.heyc.eu.org","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> | <a href="https://icp.gov.moe/?keyword=20234392" target="_blank">萌ICP备20234392号</a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
