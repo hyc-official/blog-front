@@ -16,14 +16,14 @@
   <meta name="author" content="Yangcheng He">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简化题面 问 nnn 个分数之和，其中有正有负。  思路 利用“减一个数等于减它的相反数”把减法转换为加法。 然后就是通分，相加再约分。  具体实现方法  通分：两个分数都上下同乘另一个分数的分母，注意要把先乘的分数的分母存起来。 相加：分子相加，没得说。 约分：分数上下同除分子与分母的最大公因数（即 gcd），注意也要把 gcd 存起来，因为原分数会改变。   代码 易错点：这个数据范围要开">
+    <meta name="description" content="Problem 给出一个字符串，把它平均分成 101010 个部分，问有几个部分全部都是 T。  Solution 模拟有什么好说的。 枚举每个部分，看看是否都是 T 即可。  Code 1234567891011121314151617181920212223242526272829303132333435363738394041#include &lt;iostream&gt;#includ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="题解 LuoguP8584 探索未知">
-<meta property="og:url" content="https://blog.heyc.eu.org/posts/solution-luogu-p8584/index.html">
+<meta property="og:title" content="题解 LuoguP9254 [PA 2022] Liczenie punktów">
+<meta property="og:url" content="https://blog.heyc.eu.org/posts/solution-luogu-p9254/index.html">
 <meta property="og:site_name" content="Heyc&#39;s Blog">
-<meta property="og:description" content="简化题面 问 nnn 个分数之和，其中有正有负。  思路 利用“减一个数等于减它的相反数”把减法转换为加法。 然后就是通分，相加再约分。  具体实现方法  通分：两个分数都上下同乘另一个分数的分母，注意要把先乘的分数的分母存起来。 相加：分子相加，没得说。 约分：分数上下同除分子与分母的最大公因数（即 gcd），注意也要把 gcd 存起来，因为原分数会改变。   代码 易错点：这个数据范围要开">
+<meta property="og:description" content="Problem 给出一个字符串，把它平均分成 101010 个部分，问有几个部分全部都是 T。  Solution 模拟有什么好说的。 枚举每个部分，看看是否都是 T 即可。  Code 1234567891011121314151617181920212223242526272829303132333435363738394041#include &lt;iostream&gt;#includ">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-18T15:07:43.000Z">
+<meta property="article:published_time" content="2023-04-30T01:07:45.000Z">
 <meta property="article:modified_time" content="2023-05-12T09:53:43.344Z">
 <meta property="article:author" content="Yangcheng He">
 <meta name="twitter:card" content="summary_large_image">
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>题解 LuoguP8584 探索未知 - Heyc&#39;s Blog</title>
+  <title>题解 LuoguP9254 [PA 2022] Liczenie punktów - Heyc&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="题解 LuoguP8584 探索未知"></span>
+            <span id="subtitle" data-typed-text="题解 LuoguP9254 [PA 2022] Liczenie punktów"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-18 23:07" pubdate>
-          2022年10月18日 晚上
+        <time datetime="2023-04-30 09:07" pubdate>
+          2023年4月30日 上午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          794 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          7 分钟
+          4 分钟
         
       </span>
     
@@ -277,27 +277,18 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">题解 LuoguP8584 探索未知</h1>
+            <h1 style="display: none">题解 LuoguP9254 [PA 2022] Liczenie punktów</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="简化题面"><a class="markdownIt-Anchor" href="#简化题面"></a> 简化题面</h2>
-<p>问 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个分数之和，其中有正有负。</p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<p>利用“减一个数等于减它的相反数”把减法转换为加法。</p>
-<p>然后就是通分，相加再约分。</p>
-<h3 id="具体实现方法"><a class="markdownIt-Anchor" href="#具体实现方法"></a> 具体实现方法</h3>
-<ul>
-<li>通分：两个分数都上下同乘另一个分数的分母，<strong>注意要把先乘的分数的分母存起来</strong>。</li>
-<li>相加：分子相加，没得说。</li>
-<li>约分：分数上下同除分子与分母的最大公因数（即 gcd），<strong>注意也要把 gcd 存起来，因为原分数会改变</strong>。</li>
-</ul>
-<h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
-<p>易错点：这个数据范围要开 long long，<s>血与泪的教训</s>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><br><span class="hljs-function">ll <span class="hljs-title">gcd</span><span class="hljs-params">(ll x, ll y)</span><span class="hljs-comment">//辗转相除法求最大公因数 </span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (y == <span class="hljs-number">0</span>)<span class="hljs-comment">//原y为x的倍数 </span><br>		<span class="hljs-keyword">return</span> x;<span class="hljs-comment">//即gcd为x </span><br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">gcd</span>(y, x % y);<span class="hljs-comment">//取余继续除 </span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	ll n, x = <span class="hljs-number">0</span>, y = <span class="hljs-number">1</span>;<span class="hljs-comment">//x分子，y分母，0/1为0，注意：分母不能为0 </span><br>	cin &gt;&gt; n;<br>	<span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">1</span>, a, b, opt, t; i &lt;= n; i++)<span class="hljs-comment">//t为临时变量 </span><br>	&#123;<br>		cin &gt;&gt; a &gt;&gt; b &gt;&gt; opt;<span class="hljs-comment">//a分子，b分母 </span><br>		<span class="hljs-keyword">if</span> (opt == <span class="hljs-number">2</span>)<span class="hljs-comment">//如果是减法 </span><br>			a = -a;<span class="hljs-comment">//减一个数等于加它的相反数 </span><br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE<span class="hljs-comment">//调试 </span></span><br>		cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot;/&quot;</span> &lt;&lt; y &lt;&lt; <span class="hljs-string">&quot; + &quot;</span> &lt;&lt; a &lt;&lt; <span class="hljs-string">&quot;/&quot;</span> &lt;&lt; b &lt;&lt; <span class="hljs-string">&quot; = &quot;</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>		<span class="hljs-comment">//先通分 </span><br>		t = y;<span class="hljs-comment">//因为后面会动，所以要存，切记！ </span><br>		y *= b, x *= b;<span class="hljs-comment">//原分数x/y变为xb/yb </span><br>		b *= t, a *= t;<span class="hljs-comment">//原分数a/b变为ay/by </span><br>		<span class="hljs-comment">//再相加 </span><br>		x += a;<br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE<span class="hljs-comment">//调试 </span></span><br>		cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot;/&quot;</span> &lt;&lt; y &lt;&lt; <span class="hljs-string">&quot; = &quot;</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>		<span class="hljs-comment">//最后约分 </span><br>		t = <span class="hljs-built_in">gcd</span>(x, y);<span class="hljs-comment">//因为约分过程中x和y会变，所以先存一下 </span><br>		x /= t, y /= t;<br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> ONLINE_JUDGE<span class="hljs-comment">//调试 </span></span><br>		cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot;/&quot;</span> &lt;&lt; y &lt;&lt; <span class="hljs-string">&quot;   gcd:&quot;</span> &lt;&lt; t &lt;&lt; endl;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>	&#125;<br>	<span class="hljs-keyword">if</span> (y &lt; <span class="hljs-number">0</span>)<span class="hljs-comment">//特判：如果分母为负 </span><br>		x = -x, y = -y;<span class="hljs-comment">//上下同乘-1 </span><br>	cout &lt;&lt; x;<span class="hljs-comment">//正负号包含在x中，因为分母为正数 </span><br>	<span class="hljs-keyword">if</span> (y != <span class="hljs-number">1</span>)<span class="hljs-comment">//分母为1即为正数，不用输出分母，只有分母不是1时才输出分母 </span><br>		cout &lt;&lt; <span class="hljs-string">&quot;/&quot;</span> &lt;&lt; y;<span class="hljs-comment">//别忘了斜杠 </span><br>	cout &lt;&lt; endl;<span class="hljs-comment">//个人习惯 </span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>评测记录：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/90497939">R90497939</a>。</p>
-
+                <h2 id="problem"><a class="markdownIt-Anchor" href="#problem"></a> Problem</h2>
+<p>给出一个字符串，把它平均分成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 个部分，问有几个部分全部都是 <code>T</code>。</p>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>模拟有什么好说的。</p>
+<p>枚举每个部分，看看是否都是 <code>T</code> 即可。</p>
+<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;ctime&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cctype&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stack&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;deque&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;map&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> inf = <span class="hljs-number">0x3f3f3f3f</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> <span class="hljs-keyword">elif</span> <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> il inline</span><br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">chk</span><span class="hljs-params">(string s)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> i : s)<br>        <span class="hljs-keyword">if</span> (i != <span class="hljs-string">&#x27;T&#x27;</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-type">int</span> n, c = <span class="hljs-number">0</span>;<br>string s;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; s;<br>    n /= <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= s.<span class="hljs-built_in">size</span>() - n; i += n)<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">chk</span>(s.<span class="hljs-built_in">substr</span>(i, n)))<br>            c++;<br>    cout &lt;&lt; c &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -342,8 +333,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>题解 LuoguP8584 探索未知</div>
-      <div>https://blog.heyc.eu.org/posts/solution-luogu-p8584/</div>
+      <div>题解 LuoguP9254 [PA 2022] Liczenie punktów</div>
+      <div>https://blog.heyc.eu.org/posts/solution-luogu-p9254/</div>
     </div>
     <div class="license-meta">
       
@@ -355,7 +346,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月18日</div>
+          <div>2023年4月30日</div>
         </div>
       
       
@@ -399,9 +390,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/use-your-computer/" title="电脑密码被家长改了，怎么才能夺回使用权？">
+                      <a href="/posts/solution-luogu-p9253/" title="题解 LuoguP9253 [PA 2022] Ornitolog 2">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">电脑密码被家长改了，怎么才能夺回使用权？</span>
+                        <span class="hidden-mobile">题解 LuoguP9253 [PA 2022] Ornitolog 2</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -409,8 +400,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/solution-luogu-p8546/" title="题解 LuoguP8546 小挖的 X 献身">
-                        <span class="hidden-mobile">题解 LuoguP8546 小挖的 X 献身</span>
+                      <a href="/posts/solution-luogu-p8627/" title="题解 P8627 [蓝桥杯 2015 省 A] 饮料换购">
+                        <span class="hidden-mobile">题解 P8627 [蓝桥杯 2015 省 A] 饮料换购</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
