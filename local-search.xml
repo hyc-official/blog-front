@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>庆祝博客运行 100 天</title>
+    <link href="/posts/celebrate-100d/"/>
+    <url>/posts/celebrate-100d/</url>
+    
+    <content type="html"><![CDATA[<p>这里是迟来的庆祝！</p><p>作为一个新站，能运行 100 天是一个很大的门槛（大雾</p><span id="more"></span><p>目前（2023.05.12），本站 PV 已有 700 多次，UV 已有 200 多人。<s>这其中包含了 <a href="https://www.oiso.cf">OIso</a> 的点击，但是似乎不多。</s></p><p>不管怎么说，这个小站由于融合了各个大厂（<s>指 GitHub 与 Cloudflare</s>）的技术，至少在短时间内不会消失。</p><p><s>这里题解也太多了罢</s></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>水</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>题解 LuoguP9253 [PA 2022] Ornitolog 2</title>
     <link href="/posts/solution-luogu-p9253/"/>
     <url>/posts/solution-luogu-p9253/</url>
