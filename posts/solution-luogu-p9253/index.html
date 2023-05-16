@@ -16,15 +16,15 @@
   <meta name="author" content="Yangcheng He">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem 给定一个序列，问最少要改几个数才能使该序列变为一大一小交错的&quot;波浪形&quot;。  Solution &quot;波浪形&quot;有两种可能：   1   3   5  \ &#x2F; \ &#x2F;  ...   2   4 12345678      即：第一个数是大数。      那么如果发现了一个不符合规律的数，如果应该是大数则设为 $+\infty$，否则（即应该是小数时">
+    <meta name="description" content="Problem 给定一个序列，问最少要改几个数才能使该序列变为一大一小交错的&quot;波浪形&quot;。  Conditions &quot;波浪形&quot;有两种可能：  Condition 1 1231   3   5 \ &#x2F; \ &#x2F;  ...  2   4 即：第一个数是大数。 那么如果发现了一个不符合规律的数，如果应该是大数则设为 +∞+\infty+∞，否则（即应该是小数时）则设">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解 LuoguP9253 [PA 2022] Ornitolog 2">
 <meta property="og:url" content="https://blog.heyc.eu.org/posts/solution-luogu-p9253/index.html">
 <meta property="og:site_name" content="Heyc&#39;s Blog">
-<meta property="og:description" content="Problem 给定一个序列，问最少要改几个数才能使该序列变为一大一小交错的&quot;波浪形&quot;。  Solution &quot;波浪形&quot;有两种可能：   1   3   5  \ &#x2F; \ &#x2F;  ...   2   4 12345678      即：第一个数是大数。      那么如果发现了一个不符合规律的数，如果应该是大数则设为 $+\infty$，否则（即应该是小数时">
+<meta property="og:description" content="Problem 给定一个序列，问最少要改几个数才能使该序列变为一大一小交错的&quot;波浪形&quot;。  Conditions &quot;波浪形&quot;有两种可能：  Condition 1 1231   3   5 \ &#x2F; \ &#x2F;  ...  2   4 即：第一个数是大数。 那么如果发现了一个不符合规律的数，如果应该是大数则设为 +∞+\infty+∞，否则（即应该是小数时）则设">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-30T01:21:10.000Z">
-<meta property="article:modified_time" content="2023-05-12T13:08:01.436Z">
+<meta property="article:modified_time" content="2023-05-16T04:27:19.234Z">
 <meta property="article:author" content="Yangcheng He">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -235,7 +235,7 @@
         
         
         
-          5 分钟
+          6 分钟
         
       </span>
     
@@ -284,23 +284,17 @@
                 
                 <h2 id="problem"><a class="markdownIt-Anchor" href="#problem"></a> Problem</h2>
 <p>给定一个序列，问最少要改几个数才能使该序列变为一大一小交错的&quot;波浪形&quot;。</p>
-<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<h2 id="conditions"><a class="markdownIt-Anchor" href="#conditions"></a> Conditions</h2>
 <p>&quot;波浪形&quot;有两种可能：</p>
-<ol>
-<li>
-<pre class="highlight"><code class="text">1   3   5
- \ / \ /  ...
-  2   4
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ruby">   <br>   即：第一个数是大数。<br>   <br>   那么如果发现了一个不符合规律的数，如果应该是大数则设为 <span class="hljs-variable">$+</span>\infty<span class="hljs-variable">$，</span>否则（即应该是小数时）则设为 <span class="hljs-variable">$-</span>\infty<span class="hljs-variable">$。</span><br><span class="hljs-number">2</span>. <span class="hljs-string">``</span><span class="hljs-string">`text</span><br><span class="hljs-string">     2   4</span><br><span class="hljs-string">    / \ / \  ...</span><br><span class="hljs-string">   1   3   5</span><br></code></pre></td></tr></table></figure>
-
-即，第一个数是小数。
-
-处理方法与另一种情况类似。
-
-
-</code></pre>
-</li>
-</ol>
+<h3 id="condition-1"><a class="markdownIt-Anchor" href="#condition-1"></a> Condition 1</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">1   3   5<br> \ / \ /  ...<br>  2   4<br></code></pre></td></tr></table></figure>
+<p>即：第一个数是大数。</p>
+<p>那么如果发现了一个不符合规律的数，如果应该是大数则设为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">+\infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">∞</span></span></span></span>，否则（即应该是小数时）则设为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">-\infty</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">∞</span></span></span></span>。</p>
+<h3 id="condition-2"><a class="markdownIt-Anchor" href="#condition-2"></a> Condition 2</h3>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">  2   4<br> / \ / \  ...<br>1   3   5<br></code></pre></td></tr></table></figure>
+<p>即，第一个数是小数。</p>
+<p>处理方法与另一种情况类似。</p>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
 <p>对这两种情况分别进行遍历更改统计即可。</p>
 <p>另外有一个小技巧：因为两种情况正好相反，所以可以用一个布尔值来表示现在模拟的情况。</p>
 <h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
