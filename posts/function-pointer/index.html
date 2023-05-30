@@ -16,23 +16,23 @@
   <meta name="author" content="Yangcheng He">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="网站访问速度">
-<meta property="og:url" content="https://blog.heyc.eu.org/posts/site-speed/index.html">
+    <meta name="description" content="在开始之前，我们先复习一下变量指针的内容： 指针是一个变量在内存中的地址，一个变量只对应一个指针，但是可能有多个指针指向一个变量所占的内存空间（因为一个变量可能会占好几个字节，但是每个字节都对应一个指针）。 但是在我们的印象中，函数是一串代码，不应该是存在内存里的呀。 实际上我们的程序在执行的时候也是放在内存里的，所以像函数这样一条条的指令也就有了确切的地址。这样函数也就有了自己的内存地址。 至于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数指针使用笔记">
+<meta property="og:url" content="https://blog.heyc.eu.org/posts/function-pointer/index.html">
 <meta property="og:site_name" content="Heyc&#39;s Blog">
+<meta property="og:description" content="在开始之前，我们先复习一下变量指针的内容： 指针是一个变量在内存中的地址，一个变量只对应一个指针，但是可能有多个指针指向一个变量所占的内存空间（因为一个变量可能会占好几个字节，但是每个字节都对应一个指针）。 但是在我们的印象中，函数是一串代码，不应该是存在内存里的呀。 实际上我们的程序在执行的时候也是放在内存里的，所以像函数这样一条条的指令也就有了确切的地址。这样函数也就有了自己的内存地址。 至于">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s1.ax1x.com/2023/05/19/p94myaF.png">
-<meta property="article:published_time" content="2023-05-19T11:22:09.000Z">
+<meta property="article:published_time" content="2023-05-29T15:24:49.000Z">
 <meta property="article:modified_time" content="2023-05-30T04:39:17.979Z">
 <meta property="article:author" content="Yangcheng He">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s1.ax1x.com/2023/05/19/p94myaF.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>网站访问速度 - Heyc&#39;s Blog</title>
+  <title>函数指针使用笔记 - Heyc&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="网站访问速度"></span>
+            <span id="subtitle" data-typed-text="函数指针使用笔记"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-19 19:22" pubdate>
-          2023年5月19日 晚上
+        <time datetime="2023-05-29 23:24" pubdate>
+          2023年5月29日 晚上
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.4k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -277,12 +277,40 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">网站访问速度</h1>
+            <h1 style="display: none">函数指针使用笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <p><img src="https://s1.ax1x.com/2023/05/19/p94myaF.png" srcset="/img/loading.gif" lazyload alt="p94myaF.png" /></p>
+                <p>在开始之前，我们先复习一下变量指针的内容：</p>
+<p>指针是一个变量在内存中的地址，一个变量只对应一个指针，但是可能有多个指针指向一个变量<strong>所占的</strong>内存空间（因为一个变量可能会占好几个字节，但是每个字节都对应一个指针）。</p>
+<p>但是在我们的印象中，函数是一串代码，不应该是存在内存里的呀。</p>
+<p>实际上我们的程序在执行的时候也是放在内存里的，所以像函数这样一条条的指令也就有了确切的地址。这样函数也就有了自己的内存地址。</p>
+<p>至于怎么用函数指针，我们问一下 GPT。</p>
+<blockquote>
+<p>函数指针是指向函数的指针，它可以指向任意的函数，只要它们的类型和参数列表完全匹配。可以通过函数指针的方式将函数作为参数传递给另一个函数，或者在运行时根据需要调用不同的函数。</p>
+<p>定义函数指针的语法为：<code>返回值类型 (*指针变量名)(参数列表)</code>，例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">int</span> (*pFunc)(<span class="hljs-type">int</span>, <span class="hljs-type">int</span>);  <span class="hljs-comment">// pFunc是一个指向函数的指针，该函数接受两个int类型的参数，返回int类型的值</span><br></code></pre></td></tr></table></figure>
+<p>使用函数指针调用函数的语法为：<code>指针变量名(参数列表)</code>，例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span>&#123;  <span class="hljs-comment">// 定义一个加法函数</span><br>    <span class="hljs-keyword">return</span> a + b;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123; <br>    pFunc = add;  <span class="hljs-comment">// 将函数add的地址赋值给函数指针变量pFunc</span><br>    <span class="hljs-type">int</span> result = <span class="hljs-built_in">pFunc</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// 调用函数指针，将结果赋值给result</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在上面的示例中，我们定义了一个指向函数的指针 <code>pFunc</code>，并将其赋值为 <code>add</code> 函数的地址。然后我们调用 <code>pFunc</code> 指向的函数，并将其返回值保存在 <code>result</code> 变量中。</p>
+<p>函数指针也可以使用 <code>typedef</code> 声明，使代码更易读，如下所示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">typedef</span> <span class="hljs-title">int</span> <span class="hljs-params">(*pFunc)</span><span class="hljs-params">(<span class="hljs-type">int</span>, <span class="hljs-type">int</span>)</span></span>;  <span class="hljs-comment">// 定义一个函数指针类型pFunc</span><br>pFunc func = add;  <span class="hljs-comment">// 使用函数指针类型定义一个函数指针变量func，并将其赋值为add函数的地址</span><br></code></pre></td></tr></table></figure>
+<p>这样我们就可以使用 <code>func</code> 调用 <code>add</code> 函数了。</p>
+</blockquote>
+<p>发现这是个很奇怪的东西，在变量指针中，我们需要使用指针指向的变量的值，需要在前面加一个星号，但是函数指针不需要加。</p>
+<p>还有就是它的定义方式非常不正常（？），所以我们再问问 GPT，<code>typedef int (*pFunc)(int, int)</code> 是干什么的：</p>
+<blockquote>
+<p>这段代码使用 <code>typedef</code> 声明了一个函数指针类型 <code>pFunc</code>，它指向一个函数，该函数接受两个 <code>int</code> 类型的参数，返回一个 <code>int</code> 类型的值。</p>
+<p>这意味着任何满足这个函数签名要求的函数，都可以赋值给 <code>pFunc</code> 类型的指针变量。</p>
+<p>例如，我们可以使用这个函数指针类型定义一个函数指针变量，并将它指向一个名为 <code>add</code> 的加法函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> a + b;<br>&#125;<br>pFunc func = add;  <span class="hljs-comment">// 使用函数指针类型定义一个函数指针变量func，并将其赋值为add函数的地址</span><br></code></pre></td></tr></table></figure>
+<p>然后我们就可以使用这个函数指针变量来调用 <code>add</code> 函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> result = <span class="hljs-built_in">func</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);  <span class="hljs-comment">// 调用函数指针，将结果赋值给result</span><br></code></pre></td></tr></table></figure>
+<p>这样，我们就可以通过类型别名来使代码更加清晰简洁，并且便于维护和修改。当我们需要更改函数签名时，只需要修改一处即可，不需要在代码中的所有地方都更改函数指针的声明。</p>
+</blockquote>
+<p>所以，这是一个非常奇怪的东西，建议不要使用。</p>
+<p>除非是像什么通过输入的字符来决定要使用哪个函数，参数还完全一样的那种。</p>
 
                 
               </div>
@@ -301,8 +329,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/water/" class="category-chain-item">水</a>
+  <a href="/categories/oi/" class="category-chain-item">OI</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/oi/note/" class="category-chain-item">笔记</a>
+  
+  
+
   
 
       </span>
@@ -321,8 +356,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>网站访问速度</div>
-      <div>https://blog.heyc.eu.org/posts/site-speed/</div>
+      <div>函数指针使用笔记</div>
+      <div>https://blog.heyc.eu.org/posts/function-pointer/</div>
     </div>
     <div class="license-meta">
       
@@ -334,7 +369,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月19日</div>
+          <div>2023年5月29日</div>
         </div>
       
       
@@ -378,18 +413,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/function-pointer/" title="函数指针使用笔记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">函数指针使用笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/celebrate-100d/" title="庆祝博客运行 100 天">
-                        <span class="hidden-mobile">庆祝博客运行 100 天</span>
+                      <a href="/posts/site-speed/" title="网站访问速度">
+                        <span class="hidden-mobile">网站访问速度</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,23 +16,23 @@
   <meta name="author" content="Yangcheng He">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="网站访问速度">
-<meta property="og:url" content="https://blog.heyc.eu.org/posts/site-speed/index.html">
+    <meta name="description" content="本文所有内容均仅能在 C++11 及以上标准中使用。  一、前置知识  1.1 auto 类型 auto 的本义是“自己”。 auto 类型可以根据赋值，自己推断应该使用什么类型。这其实是为了方便程序猿不用打一些很长的类型。举个栗子，遍历一个 map，如果不用 auto，代码如下。 123map&lt;class1, class2&gt; m;for (map&lt;class1, class2&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="auto 类型与 Lambda 表达式使用笔记">
+<meta property="og:url" content="https://blog.heyc.eu.org/posts/auto-and-lambda/index.html">
 <meta property="og:site_name" content="Heyc&#39;s Blog">
+<meta property="og:description" content="本文所有内容均仅能在 C++11 及以上标准中使用。  一、前置知识  1.1 auto 类型 auto 的本义是“自己”。 auto 类型可以根据赋值，自己推断应该使用什么类型。这其实是为了方便程序猿不用打一些很长的类型。举个栗子，遍历一个 map，如果不用 auto，代码如下。 123map&lt;class1, class2&gt; m;for (map&lt;class1, class2&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s1.ax1x.com/2023/05/19/p94myaF.png">
-<meta property="article:published_time" content="2023-05-19T11:22:09.000Z">
+<meta property="article:published_time" content="2022-11-27T01:54:36.000Z">
 <meta property="article:modified_time" content="2023-05-30T04:39:17.979Z">
 <meta property="article:author" content="Yangcheng He">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s1.ax1x.com/2023/05/19/p94myaF.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>网站访问速度 - Heyc&#39;s Blog</title>
+  <title>auto 类型与 Lambda 表达式使用笔记 - Heyc&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="网站访问速度"></span>
+            <span id="subtitle" data-typed-text="auto 类型与 Lambda 表达式使用笔记"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-19 19:22" pubdate>
-          2023年5月19日 晚上
+        <time datetime="2022-11-27 09:54" pubdate>
+          2022年11月27日 上午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.8k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          1 分钟
+          7 分钟
         
       </span>
     
@@ -277,12 +277,47 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">网站访问速度</h1>
+            <h1 style="display: none">auto 类型与 Lambda 表达式使用笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <p><img src="https://s1.ax1x.com/2023/05/19/p94myaF.png" srcset="/img/loading.gif" lazyload alt="p94myaF.png" /></p>
+                <p>本文所有内容均仅能在 C++11 及以上标准中使用。</p>
+<h2 id="一-前置知识"><a class="markdownIt-Anchor" href="#一-前置知识"></a> 一、前置知识</h2>
+<h3 id="11-auto-类型"><a class="markdownIt-Anchor" href="#11-auto-类型"></a> 1.1 auto 类型</h3>
+<p>auto 的本义是“自己”。</p>
+<p>auto 类型可以根据赋值，自己推断应该使用什么类型。这其实是为了方便程序猿不用打一些很长的类型。举个栗子，遍历一个 map，如果不用 auto，代码如下。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">map&lt;class1, class2&gt; m;<br><span class="hljs-keyword">for</span> (map&lt;class1, class2&gt;::iterator i = m.<span class="hljs-built_in">begin</span>(); i != m.<span class="hljs-built_in">end</span>(); i++)<br>    cout &lt;&lt; (*i).first &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; (*i).second &lt;&lt; endl;<br></code></pre></td></tr></table></figure>
+<p>而如果使用 auto，就只需要将 <code>map&lt;class1, class2&gt;::iterator</code> 改为 <code>auto</code> 就好了，代码简洁了好多。</p>
+<p>另外，for + auto 还有一种针对 STL 的遍历方法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">map&lt;class1, class2&gt; m;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i : m)<br>    cout &lt;&lt; i.first &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; i.second &lt;&lt; endl;<br></code></pre></td></tr></table></figure>
+<hr />
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;map&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; m;<br>	m[<span class="hljs-number">114514</span>] = <span class="hljs-number">1919810</span>;<br>	m[<span class="hljs-number">1919810</span>] = <span class="hljs-number">114514</span>;<br>	m[<span class="hljs-number">1919</span>] = <span class="hljs-number">810</span>;<br>	m[<span class="hljs-number">114</span>] = <span class="hljs-number">514</span>;<br>	<span class="hljs-keyword">for</span> (map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;::iterator i = m.<span class="hljs-built_in">begin</span>(); i != m.<span class="hljs-built_in">end</span>(); i++)<br>	    cout &lt;&lt; (*i).first &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; (*i).second &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i = m.<span class="hljs-built_in">begin</span>(); i != m.<span class="hljs-built_in">end</span>(); i++)<br>	    cout &lt;&lt; (*i).first &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; (*i).second &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> i : m)<br>    	cout &lt;&lt; i.first &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; i.second &lt;&lt; endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>以上代码的运行结果为：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">114 </span><span class="hljs-number">514</span><br><span class="hljs-symbol">1919 </span><span class="hljs-number">810</span><br><span class="hljs-symbol">114514 </span><span class="hljs-number">1919810</span><br><span class="hljs-symbol">1919810 </span><span class="hljs-number">114514</span><br><span class="hljs-symbol">114 </span><span class="hljs-number">514</span><br><span class="hljs-symbol">1919 </span><span class="hljs-number">810</span><br><span class="hljs-symbol">114514 </span><span class="hljs-number">1919810</span><br><span class="hljs-symbol">1919810 </span><span class="hljs-number">114514</span><br><span class="hljs-symbol">114 </span><span class="hljs-number">514</span><br><span class="hljs-symbol">1919 </span><span class="hljs-number">810</span><br><span class="hljs-symbol">114514 </span><span class="hljs-number">1919810</span><br><span class="hljs-symbol">1919810 </span><span class="hljs-number">114514</span><br></code></pre></td></tr></table></figure>
+<h2 id="二-lambda-表达式"><a class="markdownIt-Anchor" href="#二-lambda-表达式"></a> 二、Lambda 表达式</h2>
+<h3 id="21-语法"><a class="markdownIt-Anchor" href="#21-语法"></a> 2.1 语法</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[]() -&gt; <span class="hljs-keyword">class</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
+<p>这就是一个 Lambda 表达式，这个函数不能访问外界变量（全局也不行），没有参数，也没有操作。接下来我一个个来分解。</p>
+<h3 id="211-能否访问外界变量"><a class="markdownIt-Anchor" href="#211-能否访问外界变量"></a> 2.1.1 能否访问外界变量</h3>
+<p>在 <code>[]</code> 中填入你想让函数可以访问的变量，这些变量只能传引用，以参数形式传入。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[&amp;x]()&#123;&#125;<br></code></pre></td></tr></table></figure>
+<p>这就是可以让函数访问变量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span> 的 Lambda 表达式。</p>
+<p>另外，如果想让函数访问当前作用域中所有的变量的话，直接填入一个等号即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[=]() -&gt; <span class="hljs-keyword">class</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="212-参数"><a class="markdownIt-Anchor" href="#212-参数"></a> 2.1.2 参数</h3>
+<p>参数填在 <code>()</code> 中，与普通函数格式一致。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[](<span class="hljs-type">int</span> x) -&gt; <span class="hljs-keyword">class</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="213-返回值类型"><a class="markdownIt-Anchor" href="#213-返回值类型"></a> 2.1.3 返回值类型</h3>
+<p>与定义函数时不同，返回值类型写在 <code>-&gt;</code> 后，即 <code>class</code> 的位置。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[](<span class="hljs-type">int</span> x) -&gt; <span class="hljs-type">int</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
+<p>以上代码是一个返回值类型为 <code>int</code> 的 Lambda 表达式。</p>
+<p>由于一般情况下编译器都可以自己判断返回值类型，所以一般可以省略 <code>-&gt; class</code>。</p>
+<h3 id="214-主体"><a class="markdownIt-Anchor" href="#214-主体"></a> 2.1.4 主体</h3>
+<p>主体代码填在 <code>&#123;&#125;</code> 中，与普通函数格式一致，<strong>注意一定要打分号</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[](<span class="hljs-type">int</span> x) -&gt; <span class="hljs-type">int</span> &#123;<span class="hljs-keyword">return</span> x * <span class="hljs-number">114514</span>;&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="215-存储"><a class="markdownIt-Anchor" href="#215-存储"></a> 2.1.5 存储</h3>
+<p>作为一个函数，Lambda 表达式是没有自己的标识符的，所以就只能用上面说过的 auto 类型来存储。</p>
 
                 
               </div>
@@ -301,8 +336,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/water/" class="category-chain-item">水</a>
+  <a href="/categories/oi/" class="category-chain-item">OI</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/oi/note/" class="category-chain-item">笔记</a>
+  
+  
+
   
 
       </span>
@@ -321,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>网站访问速度</div>
-      <div>https://blog.heyc.eu.org/posts/site-speed/</div>
+      <div>auto 类型与 Lambda 表达式使用笔记</div>
+      <div>https://blog.heyc.eu.org/posts/auto-and-lambda/</div>
     </div>
     <div class="license-meta">
       
@@ -334,7 +376,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月19日</div>
+          <div>2022年11月27日</div>
         </div>
       
       
@@ -378,9 +420,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/function-pointer/" title="函数指针使用笔记">
+                      <a href="/posts/is-making-cps-good/" title="组 CP，真的好吗？">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">函数指针使用笔记</span>
+                        <span class="hidden-mobile">组 CP，真的好吗？</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -388,8 +430,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/celebrate-100d/" title="庆祝博客运行 100 天">
-                        <span class="hidden-mobile">庆祝博客运行 100 天</span>
+                      <a href="/posts/solution-cspj2022t1/" title="题解 CSP-J 2022 T1 乘方 / LuoguP8813">
+                        <span class="hidden-mobile">题解 CSP-J 2022 T1 乘方 / LuoguP8813</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
